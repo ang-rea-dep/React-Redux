@@ -4,7 +4,8 @@ class Car extends Component {
     constructor(props){
         super(props);
         this.state = {
-            brand: "Ford"
+            brand: "Ford",
+            type: "50x"
         };
     }
     ChangeType(){
@@ -15,6 +16,7 @@ class Car extends Component {
             <>
                 <h1>Hello World</h1>
                 <p>{this.state.brand}</p>
+                <p>{this.state.type}</p>
                 <button type="button" onClick={() => this.ChangeType()}>button</button>
             </>
         );
