@@ -1,24 +1,23 @@
 import React, {Component} from "react";
 
 class Car extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            brand: "Ford",
-            type: "50x"
-        };
+            mystate: ''
+        }
     }
-    ChangeType(){
-        this.setState({brand: "xxFord"});
+    onChageState = (event) => {
+        this.setState({mystate: event.target.value})
     }
-    render(){
+    render() {
         return (
-            <>
-                <h1>Hello World</h1>
-                <p>{this.state.brand}</p>
-                <p>{this.state.type}</p>
-                <button type="button" onClick={() => this.ChangeType()}>button</button>
-            </>
+            <div>
+                <form action="">
+                    <input type="text" onChange={this.onChageState}/>
+                    <p>{this.state.mystate}</p>
+                </form>
+            </div>
         );
     }
 }
