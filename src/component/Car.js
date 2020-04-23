@@ -5,7 +5,7 @@ function Car(){
     const [count, setCount] = useState(0)
     const [answer, setAnswer] = useState("Zero")
     const [color, setColor] = useState("")
-    const [stop, setStop] = useState(false)
+    const [pause, setPause] = useState(false)
     const [timer, setTimer] = useState(null);
 
     function increment(){
@@ -28,17 +28,17 @@ function Car(){
     }
 
     useEffect(() => {
-        if(stop){
+        if(pause){
             clearInterval(timer)
         }
         else{
             const intervalId = setInterval(() => {
                 setCount(precount => precount + 1)
             }, 1000)
-            setTimer(intervalId);
+            setTimer(intervalId)
         }
         return () => clearInterval(timer)
-        },[stop])
+    },[pause])
 
     useEffect(() => {
         setColor(randomcolor())
@@ -50,7 +50,8 @@ function Car(){
             <p style={{color: color}}>{answer}</p>
             <button type="button" onClick={increment}>increment</button>
             <button type="button" onClick={decrement}>decrement</button>
-            <button type="button" onClick={() => setStop(true)}>stop</button>
+            <button type="button" onClick={() => setPause(true)}>stop</button>
+            <button type="button" onClick={() => setPause(false)}>start</button>
         </>
     )
 }
