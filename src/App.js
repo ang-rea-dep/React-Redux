@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Car from "./component/Car";
+import Counter from "./component/Counter.jsx";
+import CounterList from "./component/CounterList"
 
 class App extends Component {
     render(){
@@ -11,7 +12,7 @@ class App extends Component {
         }
         return (
             <div className="App">
-                <Car brand={carinfo} type={carinfo.cartype}/>
+                <CounterList/>
             </div>
         );
     }

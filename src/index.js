@@ -3,21 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-const myelements = (
-    <table>
-        <th>
-            <td>1</td>
-            <td>2</td>
-        </th>
-        <tbody>
-            <tr>
-                <td>123</td>
-                <td>asdf</td>
-            </tr>
-        </tbody>
-    </table>
-)
 ReactDOM.render(
     <React.StrictMode>
         <App />
