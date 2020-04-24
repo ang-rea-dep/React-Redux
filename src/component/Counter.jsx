@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-//import randomcolor from "randomcolor"
+import randomcolor from "randomcolor"
 
 const Counter = (props) => {
     //console.log('props', props)
     const [counter, setCounter] = useState(Number(props.initcounter.val))
-    // const [color, setColor] = useState("")
-    // const [pause, setPause] = useState(false)
-    // const [timer, setTimer] = useState(null);
+    const [color, setColor] = useState("")
+    const [pause, setPause] = useState(false)
+    const [timer, setTimer] = useState(null);
 
     // function increment(){
     //     setCounter(precount => precount + 1) 
@@ -22,16 +22,16 @@ const Counter = (props) => {
     //     }
     //     else{
     //         const intervalId = setInterval(() => {
-    //             setCount(precount => precount + 1)
+    //             setCounter(counter => counter + 1)
     //         }, 1000)
     //         setTimer(intervalId)
     //     }
     //     return () => {clearInterval(timer)}
-    // },[pause])
+    // },[pause, counter])
 
     // useEffect(() => {
     //     setColor(randomcolor())   
-    // }, [count])
+    // }, [counter])
 
     return(
         <>
