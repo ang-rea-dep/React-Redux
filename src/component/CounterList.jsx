@@ -26,8 +26,24 @@ const CounterList = () =>{
         setInitcounters(initcounters)
     })
 
+    const increment = counter => {
+        const counters = [...initcounters]
+        const index = counters.indexOf(counter)
+        counters[index] = {...counter}
+        counters[index].val++
+        setInitcounters(counters)
+    }
+
+    function decrement(counter){
+        const counters = [...initcounters]
+        const index = counters.indexOf(counter)
+        counters[index] = {...counter}
+        if(counters[index].val >0 )
+            counters[index].val--
+        setInitcounters(counters)
+    }
+
     function Delete(id){
-        console.log("delete", id)
         let counters = initcounters.filter(counter => counter.id !== id)
         setInitcounters(counters)
     }
@@ -37,14 +53,26 @@ const CounterList = () =>{
         setInitcounters([...initcounters, {id: addId, val: 0}])
         console.log(initcounters[0].id)
     }
+
+    function counterReset(){
+        const counters = [...initcounters]
+        counters.map(counter => counter.val = 0)
+        setInitcounters(counters)
+    }
+
+    const counterLength = () => {
+        const counters =  initcounters.filter(counter => counter.val > 0)
+        return counters.length
+    }
     return(
         <>
             <div className="container">
                 <div>
-                    <h3>{initcounters.length}</h3>
+                    <h3>{counterLength()}</h3>
                 </div>
-                <button type="button" className="btn btn-info" onClick={counterCreate}>add</button>
-                {initcounters.map(counter =><Counter key={counter.id} initcounter={counter} counterDelete={Delete} />)}
+                <button type="button" className="btn btn-info mr-3" onClick={counterCreate}>add</button>
+                <button type="button" className="btn btn-secondary" onClick={counterReset}>reset</button>
+                {initcounters.map(counter =><Counter key={counter.id} initcounter={counter} counterDelete={Delete} counterIncrement={increment} counterDecrement={decrement}/>)}
             </div>
         </>
     )
