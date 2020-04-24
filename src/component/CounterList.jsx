@@ -51,7 +51,7 @@ const CounterList = () =>{
     function counterCreate(){
         let addId = initcounters.length + 1
         setInitcounters([...initcounters, {id: addId, val: 0}])
-        console.log(initcounters[0].id)
+        // console.log(initcounters[0].id)
     }
 
     function counterReset(){
